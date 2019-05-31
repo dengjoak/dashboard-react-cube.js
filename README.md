@@ -18,7 +18,7 @@ The Cube.js team host's a dump with sample data for tutorials. It is a simple â€
 
 $ curl http://cube.dev/downloads/ecom-dump.sql > ecom-dump.sql
 $ createdb ecom
-\$ psql --dbname ecom -f ecom-dump.sql
+$ psql --dbname ecom -f ecom-dump.sql
 
 Now that we have everything configured, the last step is to generate a Cube.js schema based on some of our tables and start the dev server.
 
