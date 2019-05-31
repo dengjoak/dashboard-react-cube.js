@@ -2,7 +2,7 @@
 ![alt text](/22223123123.PNG)
 
 
-Front end -
+Frontend 
 
 run the command here from the /frontend and the react application will start.
 
