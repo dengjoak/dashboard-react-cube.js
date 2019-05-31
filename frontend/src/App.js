@@ -15,7 +15,6 @@ import moment from "moment";
 import numeral from "numeral";
 import cubejs from "@cubejs-client/core";
 import Chart from "./Chart.js";
-import GithubCorner from "react-github-corner";
 
 const cubejsApi = cubejs(process.env.REACT_APP_CUBEJS_TOKEN, {
   apiUrl: process.env.REACT_APP_API_URL
@@ -149,10 +148,6 @@ class App extends Component {
             />
           </Col>
         </Row>
-        <GithubCorner
-          size={120}
-          href="https://github.com/statsbotco/cube.js/tree/master/examples/react-dashboard"
-        />
       </Container>
     );
   }
