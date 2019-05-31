@@ -8,19 +8,13 @@ cube(`Users`, {
   measures: {
     count: {
       type: `count`,
-      drillMembers: [id, city, createdAt]
+      drillMembers: [city, id, createdAt]
     }
   },
   
   dimensions: {
-    id: {
-      sql: `id`,
-      type: `number`,
-      primaryKey: true
-    },
-    
-    company: {
-      sql: `company`,
+    gender: {
+      sql: `gender`,
       type: `string`
     },
     
@@ -29,9 +23,15 @@ cube(`Users`, {
       type: `string`
     },
     
-    gender: {
-      sql: `gender`,
+    company: {
+      sql: `company`,
       type: `string`
+    },
+    
+    id: {
+      sql: `id`,
+      type: `number`,
+      primaryKey: true
     },
     
     createdAt: {
