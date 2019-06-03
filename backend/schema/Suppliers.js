@@ -1,37 +1,39 @@
-cube(`Users`, {
-  sql: `SELECT * FROM public.users`,
-
-  joins: {},
-
+cube(`Suppliers`, {
+  sql: `SELECT * FROM public.suppliers`,
+  
+  joins: {
+    
+  },
+  
   measures: {
     count: {
       type: `count`,
-      drillMembers: [city, id, createdAt]
+      drillMembers: [id, createdAt]
     }
   },
-
+  
   dimensions: {
-    gender: {
-      sql: `number`,
+    address: {
+      sql: `address`,
       type: `string`
     },
-
-    city: {
-      sql: `city`,
-      type: `string`
-    },
-
+    
     company: {
       sql: `company`,
       type: `string`
     },
-
+    
+    email: {
+      sql: `email`,
+      type: `string`
+    },
+    
     id: {
       sql: `id`,
       type: `number`,
       primaryKey: true
     },
-
+    
     createdAt: {
       sql: `created_at`,
       type: `time`

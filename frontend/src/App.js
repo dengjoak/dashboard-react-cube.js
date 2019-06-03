@@ -15,7 +15,7 @@ import moment from "moment";
 import numeral from "numeral";
 import cubejs from "@cubejs-client/core";
 import Chart from "./Chart.js";
-import { Button } from "evergreen-ui";
+import { Pane, Button, Text, Heading } from "evergreen-ui";
 
 const cubejsApi = cubejs(process.env.REACT_APP_CUBEJS_TOKEN, {
   apiUrl: process.env.REACT_APP_API_URL
@@ -31,6 +31,13 @@ class App extends Component {
   render() {
     return (
       <Container fluid>
+        <Pane display="flex" padding={16} background="tint2" borderRadius={3}>
+          <Pane flex={10} alignItems="center" display="flex">
+            <Heading size={900}>
+              Cube JS + React and Postgres SQL Dashboard
+            </Heading>
+          </Pane>
+        </Pane>
         <Row>
           <Col sm="4">
             <Chart
@@ -39,6 +46,16 @@ class App extends Component {
               query={{ measures: ["Users.count"] }}
               render={resultSet => renderSingleValue(resultSet, "Users.count")}
             />
+            <br />
+
+            <Chart
+              cubejsApi={cubejsApi}
+              title="Total Suppliers"
+              query={{ measures: ["Suppliers.count"] }}
+              render={resultSet =>
+                renderSingleValue(resultSet, "Suppliers.count")
+              }
+            />
           </Col>
           <Col sm="4">
             <Chart
@@ -46,6 +63,15 @@ class App extends Component {
               title="Total Orders"
               query={{ measures: ["Orders.count"] }}
               render={resultSet => renderSingleValue(resultSet, "Orders.count")}
+            />
+            <br />
+            <Chart
+              cubejsApi={cubejsApi}
+              title="Total Product Categories"
+              query={{ measures: ["ProductCategories.count"] }}
+              render={resultSet =>
+                renderSingleValue(resultSet, "ProductCategories.count")
+              }
             />
           </Col>
           <Col sm="4">
@@ -63,6 +89,15 @@ class App extends Component {
                 ]
               }}
               render={resultSet => renderSingleValue(resultSet, "Orders.count")}
+            />
+            <br />
+            <Chart
+              cubejsApi={cubejsApi}
+              title="Total Line Items"
+              query={{ measures: ["LineItems.count"] }}
+              render={resultSet =>
+                renderSingleValue(resultSet, "LineItems.count")
+              }
             />
           </Col>
         </Row>
