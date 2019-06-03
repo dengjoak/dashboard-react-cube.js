@@ -1,5 +1,5 @@
 
-![alt text](/ScreenShot)
+![alt text](./ScreenShot)
 
 
 Frontend 
