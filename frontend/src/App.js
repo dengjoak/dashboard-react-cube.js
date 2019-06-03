@@ -135,6 +135,37 @@ class App extends Component {
                 </ResponsiveContainer>
               )}
             />
+            <br />
+            <Chart
+              cubejsApi={cubejsApi}
+              title="New Orders Over Time"
+              query={{
+                measures: ["Orders.count"],
+                timeDimensions: [
+                  {
+                    dimension: "Orders.createdAt",
+                    dateRange: ["2017-01-01", "2018-12-31"],
+                    granularity: "month"
+                  }
+                ]
+              }}
+              render={resultSet => (
+                <ResponsiveContainer width="100%" height={300}>
+                  <AreaChart data={resultSet.chartPivot()}>
+                    <XAxis dataKey="category" tickFormatter={dateFormatter} />
+                    <YAxis tickFormatter={numberFormatter} />
+                    <Tooltip labelFormatter={dateFormatter} />
+                    <Area
+                      type="monotone"
+                      dataKey="Orders.count"
+                      name="Orders"
+                      stroke="rgb(255,69,0)"
+                      fill="rgb(255,69, .16)"
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              )}
+            />
           </Col>
           <Col sm="6">
             <Chart
